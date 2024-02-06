@@ -12,4 +12,4 @@ const addMenuItems = async menuItems => {
     }
 };
 
-module.exports = addMenuItems;
+module.exports = { addMenuItems };

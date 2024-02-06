@@ -7,14 +7,14 @@ const addMenuItemsController = async (req, res, next) => {
             body:{
                 title='',
                 description='',
-                type='',
+                category='',
                 price='',
             },
         } = req;
         const data = {
             title,
             description,
-            type,
+            category,
             price
         };
         await addMenuItems(data);

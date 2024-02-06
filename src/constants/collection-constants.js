@@ -1,6 +1,8 @@
 module.exports = {
     COLLECTIONS: {
         MENU: 'menu',
-        ORDER: 'order'
+        ORDER: 'order',
+        TABLE: 'table',
+        PAYMENT: 'payment',
     },
 };
