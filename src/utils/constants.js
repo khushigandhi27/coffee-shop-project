@@ -1,5 +1,6 @@
 module.exports = {
     STORAGE_PREFIX_KEY: {
-        MENU_ITEMS_IMAGE:'menuItemsImage',
+        COFFEE_IMAGE:'coffee',
+        SNACKS_IMAGE:'snacks',
     },
   };

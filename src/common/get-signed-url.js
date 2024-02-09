@@ -19,4 +19,4 @@ const getFileSignedUrl = async (req, res) => {
   }
 };
 
-module.exports = getFileSignedUrl;
+module.exports = {getFileSignedUrl};

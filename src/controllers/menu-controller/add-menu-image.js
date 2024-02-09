@@ -11,7 +11,7 @@ const getMessage = require('../../utils/get-message');
 
 const addMenuImage = async (req, res) => {
   try {
-    const { fileName } = req.body;
+    const { fileName, category } = req.body;
     const mimeType = getType(fileName);
     const fileExtension = path.extname(fileName);
 
@@ -20,9 +20,17 @@ const addMenuImage = async (req, res) => {
     }
 
     const date = new Date();
-    const storagePrefix = STORAGE_PREFIX_KEY.MENU_ITEMS_IMAGE;
 
-    const defaultMenuPrefix = `${storagePrefix}/doc_${date.getTime()}${fileExtension}`;
+    let folderName;
+    if (category.toLowerCase() === 'coffee') {
+      folderName = STORAGE_PREFIX_KEY.COFFEE_IMAGE;
+    } else if (category.toLowerCase() === 'snacks') {
+      folderName = STORAGE_PREFIX_KEY.SNACKS_IMAGE;
+    } else {
+      folderName = 'other';
+    }
+
+    const defaultMenuPrefix = `${folderName}/${fileName}`;
     const signedUrl = await putSignedUrl(defaultMenuPrefix, mimeType);
 
     return res.send({
@@ -36,6 +44,4 @@ const addMenuImage = async (req, res) => {
   }
 };
 
-module.exports = {
-  addMenuImage,
-};
+module.exports = { addMenuImage };

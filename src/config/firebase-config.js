@@ -8,4 +8,4 @@ admin.initializeApp({
   storageBucket: 'coffee-shop-project-4d852.appspot.com',
 });
 
-module.exports = admin;
+module.exports =  admin;
