@@ -1,7 +1,5 @@
-const { fetchMenuImage } = require('../../database-functions/menu/fetchMenuImage');
 const generateResponse = require('../../utils/generate-response');
 const { addMenuItems } = require('../../database-functions/menu/add-menu-item');
-const { isStringsArray } = require('../../utils/check-extensions');
 
 const addMenuItemsController = async (req, res, next) => {
     try {
