@@ -1,7 +1,7 @@
 const shortid = require('shortid');
 const { addOrderItems } = require('../../database-functions/order/add-order-item');
 const { getMenuPrices } = require('../../database-functions/menu/get-menu-prices');
-const { completePayment } = require('../../database-functions/order/completePayment');
+const { updOrderStatus } = require('../../database-functions/order/updOrderStatus');
 const { findAvailableTable } = require('../../database-functions/order/findAvailableTable');
 const generateResponse = require('../../utils/generate-response');
 
@@ -31,7 +31,7 @@ const addOrderItemController = async (req, res, next) => {
         const availableTableRef = await findAvailableTable(orderStatus);
 
         if (availableTableRef) {
-            await completePayment(availableTableRef, orderId, orderStatus);
+            await updOrderStatus(availableTableRef, orderId, orderStatus);
 
             const data = {
                 orderId,

@@ -2,7 +2,7 @@ const admin = require('../../config/firebase-config');
 const { COLLECTIONS } = require('../../constants/collection-constants');
 const db = admin.firestore();
 
-const completePayment = async ( orderId, orderStatus) => {
+const updOrderStatus = async ( orderId, orderStatus) => {
     try {
         await db.collection(COLLECTIONS.ORDER).update({ orderStatus, orderId });
         console.log(`Payment complete for table ${tableRef.id} with order ${orderId}. Status: ${orderStatus}`);
@@ -12,4 +12,4 @@ const completePayment = async ( orderId, orderStatus) => {
     }
 };
 
-module.exports = { completePayment };
+module.exports = { updOrderStatus };
