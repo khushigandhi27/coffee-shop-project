@@ -6,13 +6,13 @@ const addTableItemCOntroller = async (req, res, next) => {
         const{
             body:{
                 tableNo="",
-                status="",
+                tableStatus="",
                 orderId="",
             },
         } = req;
         const data = {
             tableNo,
-            status,
+            tableStatus,
             orderId,
         };
         await addTableItems(data);

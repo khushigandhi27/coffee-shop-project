@@ -24,25 +24,17 @@ const addOrderItemValidator = checkSchema ({
     exists: {
       errorMessage: getMessage('INPUT_REQUIRED').replace('{{ input }}', 'selectedItems'),
     },
-    isString: {
-      errorMessage: getMessage('INPUT_STRING').replace('{{ input }}', 'selectedItems'),
+    isArray: {
+      errorMessage: getMessage('INPUT_ARRAY').replace('{{ input }}', 'selectedItems'),
     },
   },
   tableNo: {
     optional: true,
-    isString: {
-      errorMessage: getMessage('INPUT_STRING').replace(
+    isNumeric: {
+      errorMessage: getMessage('INPUT_NUMERIC').replace(
         '{{ input }}',
         'tableNo',
       ),
-    },
-  },
-  orderStatus:{
-    exists: {
-      errorMessage: getMessage('INPUT_REQUIRED').replace('{{ input }}', 'orderStatus'),
-    },
-    isString: {
-      errorMessage: getMessage('INPUT_STRING').replace('{{ input }}', 'orderStatus'),
     },
   },
 });

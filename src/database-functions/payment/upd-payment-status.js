@@ -21,14 +21,17 @@ const paymentItems = async (data) => {
         const orderData = orderSnapshot.data();
         const tableNo = orderData.tableNo;
 
-        const tableRef = await db.collection(COLLECTIONS.TABLE).doc(tableNo);
-        await tableRef.update({ tableStatus: 'free' });
-        console.log("Table status updated to 'free'");
+        await db.collection(COLLECTIONS.TABLE).doc(tableNo).update({
+            tableStatus: paymentStatus === 'done' ? 'free' : 'occupied',
+            orderId: paymentStatus === 'done' ? '--' : orderId 
+        });
+        console.log("Table status and orderId updated");
 
         return true;
     } catch (error) {
         throw error;
     }
 };
+
 
 module.exports = { paymentItems };
